@@ -98,9 +98,42 @@
             50% { transform: scale(1.4); }
             100% { transform: scale(1); }
         }
+
+        /* Toast Notification */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 50px;
+            padding: 16px;
+            position: fixed;
+            z-index: 100;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+        @keyframes fadein {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 30px; opacity: 1;}
+        }
+        @keyframes fadeout {
+            from {bottom: 30px; opacity: 1;}
+            to {bottom: 0; opacity: 0;}
+        }
     </style>
 </head>
 <body class="selection:bg-slate-700 pb-24">
+
+    <!-- Toast Notification Element -->
+    <div id="toast">Order copied to clipboard! Paste it in Signal.</div>
 
     <!-- Hero Section -->
     <section class="relative h-screen flex flex-col justify-end overflow-hidden">
@@ -154,6 +187,9 @@
                 </div>
             </section>
 
+            <!-- Menu Categories (Cold, Hot, Sweets, Viral) remain unchanged -->
+            <!-- ... -->
+            
             <!-- Cold Collection -->
             <section class="mb-20">
                 <div class="flex items-center gap-4 mb-8">
@@ -413,8 +449,6 @@
             };
             cart.push(item);
             updateCartUI();
-            
-            // Show trigger if hidden
             document.getElementById('cart-trigger').classList.remove('hidden');
         }
 
@@ -463,10 +497,25 @@
             document.getElementById('cart-drawer').classList.toggle('open');
         }
 
+        function showToast() {
+            const toast = document.getElementById("toast");
+            toast.className = "show";
+            setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+        }
+
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+
         function sendOrder(platform) {
             if (cart.length === 0) return;
 
-            let message = "*New Order from JUDE Cafe Website*\n\n";
+            let message = "New Order from JUDE Cafe Website\n\n";
             let total = 0;
             
             cart.forEach((item, index) => {
@@ -474,17 +523,20 @@
                 total += item.price;
             });
 
-            message += `\n*Total Amount: ${total} QR*`;
-            message += `\n\n_Please confirm availability._`;
+            message += `\nTotal Amount: ${total} QR`;
+            message += `\n\nPlease confirm availability.`;
 
-            const encoded = encodeURIComponent(message);
-            
             if (platform === 'wa') {
+                const encoded = encodeURIComponent(message);
                 window.open(`https://wa.me/97455710313?text=${encoded}`, '_blank');
             } else {
-                // Signal handles messaging via link profiles mainly, 
-                // but we can provide the pre-filled text if the browser/app supports it
-                window.open(`https://signal.me/#p/+97455710313`, '_blank');
+                // Since Signal links don't support pre-filling messages yet, 
+                // we copy the text for the user and notify them.
+                copyToClipboard(message);
+                showToast();
+                setTimeout(() => {
+                    window.open(`https://signal.me/#p/+97455710313`, '_blank');
+                }, 1000);
             }
         }
     </script>
