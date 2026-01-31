@@ -68,6 +68,15 @@
             font-weight: 700;
             color: var(--sage);
         }
+        .recipe-tag {
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            color: #64748b;
+            text-transform: uppercase;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 8px;
+            padding-top: 8px;
+        }
         /* Cart Drawer Styles */
         #cart-drawer {
             transform: translateY(100%);
@@ -120,7 +129,7 @@
         <div id="menu" class="scroll-mt-10">
             <!-- Vibe Selector -->
             <section class="mb-12">
-                <h3 class="heading-font text-center text-[10px] uppercase tracking-[0.4em] text-slate-500 mb-6">Choose Your Size</h3>
+                <h3 class="heading-font text-center text-[10px] uppercase tracking-[0.4em] text-slate-500 mb-6">Choose Your Coffee Size</h3>
                 <div class="grid grid-cols-3 gap-3 max-w-md mx-auto">
                     <div class="vibe-card p-4 rounded-2xl text-center cursor-pointer" onclick="selectSize('8oz', this)">
                         <span class="block text-[10px] text-slate-500 font-bold mb-1 uppercase tracking-tighter">8oz</span>
@@ -140,7 +149,7 @@
                 </div>
             </section>
 
-            <!-- Cold Section -->
+            <!-- Cold Collection -->
             <section class="mb-20">
                 <div class="flex items-center gap-4 mb-8">
                     <h2 class="heading-font text-2xl font-bold uppercase tracking-tight">🧊 Cold Collection</h2>
@@ -159,7 +168,8 @@
                             <h3 class="text-xl font-semibold">Thai Iced Coffee</h3>
                             <span class="price-tag">21 Q.R.</span>
                         </div>
-                        <p class="text-sm text-slate-400 font-light">Creamy condensation, bold beans, and a condensed milk cloud.</p>
+                        <p class="text-sm text-slate-400 font-light italic">Bold coffee met with a signature condensed cloud.</p>
+                        <div class="recipe-tag">Profile: Thai Beans + Evaporated Milk + Sweetened Condensed Cream</div>
                     </div>
 
                     <div class="product-card group" onclick="addToCart('Spanish Iced Latte', 22)">
@@ -173,47 +183,126 @@
                             <h3 class="text-xl font-semibold">Spanish Iced Latte</h3>
                             <span class="price-tag">22 Q.R.</span>
                         </div>
-                        <p class="text-sm text-slate-400 font-light">A velvety mix of espresso and signature dulce blends.</p>
+                        <p class="text-sm text-slate-400 font-light italic">A velvety mix of espresso and dulce blends.</p>
+                        <div class="recipe-tag">Profile: Double Espresso + Frothy Whole Milk + Dulce de Leche Base</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hot Favorites -->
+            <section class="mb-20">
+                <div class="flex items-center gap-4 mb-8">
+                    <h2 class="heading-font text-2xl font-bold uppercase tracking-tight">☕ Hot Favorites</h2>
+                    <div class="h-[1px] flex-grow bg-slate-800"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="product-card group" onclick="addToCart('Simple Rich Coffee', 16)">
+                        <div class="relative overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80&w=800" class="product-img group-hover:scale-[1.05] transition-transform duration-500" alt="Hot Coffee">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                                <span class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest">+ Add to Cart</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="text-xl font-semibold">Simple Rich Coffee</h3>
+                            <span class="price-tag">16 Q.R.</span>
+                        </div>
+                        <p class="text-sm text-slate-400 font-light italic">Classic heat met with high-grade evaporated smoothness.</p>
+                        <div class="recipe-tag">Profile: Dark Roast Arabica + Steamed Evaporated Milk + Touch of Spice</div>
+                    </div>
+                    <div class="product-card group" onclick="addToCart('Caffè Tres Leches', 23)">
+                        <div class="relative overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800" class="product-img group-hover:scale-[1.05] transition-transform duration-500" alt="Tres Leches">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                                <span class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest">+ Add to Cart</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="text-xl font-semibold">Caffè Tres Leches</h3>
+                            <span class="price-tag">23 Q.R.</span>
+                        </div>
+                        <p class="text-sm text-slate-400 font-light italic">The triple-milk masterpiece for serious coffee lovers.</p>
+                        <div class="recipe-tag">Profile: Espresso + Heavy Cream + Condensed Milk + Whole Milk Reduction</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sweet Collection (Cakes) -->
+            <section class="mb-20">
+                <div class="flex items-center gap-4 mb-8">
+                    <h2 class="heading-font text-2xl font-bold uppercase tracking-tight">🍰 Sweet Collection</h2>
+                    <div class="h-[1px] flex-grow bg-slate-800"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="product-card group" onclick="addToCart('Saffron Milk Cake', 35, 'Treat')">
+                        <div class="relative overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1514517604298-cf80e0fb7f1e?auto=format&fit=crop&q=80&w=800" class="product-img group-hover:scale-[1.05] transition-transform duration-500" alt="Saffron Cake">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                                <span class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest">+ Add to Cart</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="text-xl font-semibold">Saffron Milk Cake</h3>
+                            <span class="price-tag">35 Q.R.</span>
+                        </div>
+                        <p class="text-sm text-slate-400 font-light italic">Soft sponge soaked in saffron-infused triple milk.</p>
+                        <div class="recipe-tag">Profile: Premium Saffron + Whipped Cream + Tres Leches Soak</div>
+                    </div>
+                    <div class="product-card group" onclick="addToCart('Pistachio Dream Cake', 32, 'Treat')">
+                        <div class="relative overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=800" class="product-img group-hover:scale-[1.05] transition-transform duration-500" alt="Pistachio Cake">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                                <span class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest">+ Add to Cart</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="text-xl font-semibold">Pistachio Dream</h3>
+                            <span class="price-tag">32 Q.R.</span>
+                        </div>
+                        <p class="text-sm text-slate-400 font-light italic">Layered indulgence with crushed Iranian pistachios.</p>
+                        <div class="recipe-tag">Profile: Salted Pistachio Ganache + Velvet Sponge + Nut Crumble</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Viral Trends -->
+            <section class="mb-20">
+                <div class="flex items-center gap-4 mb-8">
+                    <h2 class="heading-font text-2xl font-bold uppercase tracking-tight">✨ Viral Trends</h2>
+                    <div class="h-[1px] flex-grow bg-slate-800"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="product-card group" onclick="addToCart('Dubai Chocolate Cake', 45, 'Trend')">
+                        <div class="relative overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=800" class="product-img group-hover:scale-[1.05] transition-transform duration-500" alt="Dubai Cake">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                                <span class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest">+ Add to Cart</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="text-xl font-semibold">Dubai Chocolate Cake</h3>
+                            <span class="price-tag">45 Q.R.</span>
+                        </div>
+                        <p class="text-sm text-slate-400 font-light italic">The world-famous pistachio-kunafa chocolate experience.</p>
+                        <div class="recipe-tag">Profile: Crispy Kunafa + Pistachio Spread + Rich Ganache + Gold Leaf</div>
+                    </div>
+                    <div class="product-card group" onclick="addToCart('Cracking Latte Cake', 38, 'Trend')">
+                        <div class="relative overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80&w=800" class="product-img group-hover:scale-[1.05] transition-transform duration-500" alt="Latte Cake">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                                <span class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest">+ Add to Cart</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="text-xl font-semibold">Cracking Coffee Cake</h3>
+                            <span class="price-tag">38 Q.R.</span>
+                        </div>
+                        <p class="text-sm text-slate-400 font-light italic">Crack the chocolate shell to reveal a coffee-soaked heart.</p>
+                        <div class="recipe-tag">Profile: Hard Snap Shell + Espresso Tiramisu Center + Cocoa Dust</div>
                     </div>
                 </div>
             </section>
         </div>
-
-        <!-- Hot Section -->
-        <section class="mb-20">
-            <div class="flex items-center gap-4 mb-8">
-                <h2 class="heading-font text-2xl font-bold uppercase tracking-tight">☕ Hot Favorites</h2>
-                <div class="h-[1px] flex-grow bg-slate-800"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="product-card group" onclick="addToCart('Simple Rich Coffee', 16)">
-                    <div class="relative overflow-hidden rounded-2xl">
-                        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80&w=800" class="product-img group-hover:scale-[1.05] transition-transform duration-500" alt="Hot Coffee">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-                            <span class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest">+ Add to Cart</span>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-start mb-1">
-                        <h3 class="text-xl font-semibold">Simple Rich Coffee</h3>
-                        <span class="price-tag">16 Q.R.</span>
-                    </div>
-                    <p class="text-sm text-slate-400 font-light">Classic heat met with high-grade evaporated smoothness.</p>
-                </div>
-                <div class="product-card group" onclick="addToCart('Caffè Tres Leches', 23)">
-                    <div class="relative overflow-hidden rounded-2xl">
-                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800" class="product-img group-hover:scale-[1.05] transition-transform duration-500" alt="Tres Leches">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-                            <span class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest">+ Add to Cart</span>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-start mb-1">
-                        <h3 class="text-xl font-semibold">Caffè Tres Leches</h3>
-                        <span class="price-tag">23 Q.R.</span>
-                    </div>
-                    <p class="text-sm text-slate-400 font-light">The triple-milk masterpiece for serious coffee lovers.</p>
-                </div>
-            </div>
-        </section>
 
         <!-- Order Section -->
         <section id="order" class="scroll-mt-10 py-20 border-t border-slate-800">
@@ -296,11 +385,11 @@
             el.querySelector('div').classList.replace('bg-slate-700', 'bg-sage');
         }
 
-        function addToCart(name, price) {
+        function addToCart(name, price, category = 'Coffee') {
             const item = {
                 id: Date.now(),
                 name: name,
-                size: selectedSize,
+                size: (category === 'Coffee') ? selectedSize : 'Standard',
                 price: price
             };
             cart.push(item);
