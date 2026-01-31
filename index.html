@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUDE Cafe | Rich. Creamy. Global.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=Outfit:wght@200;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sage: #94a3b8;
+            --charcoal: #0f172a;
+            --cream: #f8fafc;
+            --accent: #cbd5e1;
+            --whatsapp: #25D366;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--charcoal);
+            color: var(--cream);
+            font-family: 'Outfit', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+        }
+        .product-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            background: #1e293b;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+        .vibe-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .vibe-card.active {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--sage);
+            transform: translateY(-2px);
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 1) 100%);
+        }
+        .order-btn {
+            background-color: var(--whatsapp);
+            transition: all 0.3s ease;
+        }
+        .price-tag {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: var(--sage);
+        }
+    </style>
+</head>
+<body class="selection:bg-slate-700">
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex flex-col justify-end overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=1600" 
+                 class="w-full h-full object-cover opacity-60 scale-105 animate-[pulse_10s_infinite]" alt="Cafe Background">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        
+        <div class="relative z-10 p-6 mb-12 md:max-w-2xl md:mx-auto text-center">
+            <h1 class="heading-font text-6xl md:text-8xl font-bold tracking-tighter mb-4">JUDE.</h1>
+            <p class="text-sage font-light tracking-[0.4em] text-sm uppercase mb-8">Elevating the Every Day</p>
+            <div class="flex flex-col gap-4">
+                <a href="#menu" class="bg-white text-black py-4 rounded-full font-bold heading-font uppercase tracking-widest text-sm hover:scale-105 transition-transform">Explore Menu</a>
+                <a href="#order" class="border border-white/20 py-4 rounded-full font-bold heading-font uppercase tracking-widest text-sm backdrop-blur-md">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="p-4 md:max-w-4xl md:mx-auto">
+
+        <!-- The Story -->
+        <section class="py-20 text-center">
+            <h2 class="heading-font text-xs uppercase tracking-[0.5em] text-slate-500 mb-6">The Concept</h2>
+            <p class="text-2xl md:text-3xl font-light leading-snug tracking-tight">
+                Born in Doha. Inspired by global coffee cultures. We specialize in <span class="text-sage italic">aesthetic richness</span> and perfectly balanced creaminess.
+            </p>
+        </section>
+
+        <!-- Menu Section -->
+        <div id="menu" class="scroll-mt-10">
+            <!-- Vibe Selector -->
+            <section class="mb-12">
+                <h3 class="heading-font text-center text-[10px] uppercase tracking-[0.4em] text-slate-500 mb-6">Choose Your Vibe</h3>
+                <div class="grid grid-cols-3 gap-3 max-w-md mx-auto">
+                    <div class="vibe-card p-4 rounded-2xl text-center cursor-pointer" onclick="selectVibe(this)">
+                        <span class="block text-[10px] text-slate-500 font-bold mb-1 uppercase tracking-tighter">8oz</span>
+                        <p class="text-sm font-bold tracking-tight mb-1">LOWKEY</p>
+                        <div class="h-[2px] w-4 bg-slate-700 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="vibe-card active p-4 rounded-2xl text-center cursor-pointer" onclick="selectVibe(this)">
+                        <span class="block text-[10px] text-sage font-bold mb-1 uppercase tracking-tighter">12oz</span>
+                        <p class="text-sm font-bold tracking-tight mb-1">MAIN CHARACTER</p>
+                        <div class="h-[2px] w-4 bg-sage mx-auto rounded-full"></div>
+                    </div>
+                    <div class="vibe-card p-4 rounded-2xl text-center cursor-pointer" onclick="selectVibe(this)">
+                        <span class="block text-[10px] text-slate-500 font-bold mb-1 uppercase tracking-tighter">16oz</span>
+                        <p class="text-sm font-bold tracking-tight mb-1">FULL SEND</p>
+                        <div class="h-[2px] w-4 bg-slate-700 mx-auto rounded-full"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cold Section -->
+            <section class="mb-20">
+                <div class="flex items-center gap-4 mb-8">
+                    <h2 class="heading-font text-2xl font-bold uppercase tracking-tight">🧊 Cold Collection</h2>
+                    <div class="h-[1px] flex-grow bg-slate-800"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="relative group">
+                        <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&q=80&w=800" class="product-img group-hover:scale-[1.02]" alt="Thai Iced">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="text-xl font-semibold">Thai Iced Coffee</h3>
+                            <span class="price-tag">21 Q.R.</span>
+                        </div>
+                        <p class="text-sm text-slate-400 font-light">Creamy condensation, bold beans, and a condensed milk cloud.</p>
+                    </div>
+
+                    <div class="relative group">
+                        <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&q=80&w=800" class="product-img group-hover:scale-[1.02]" alt="Spanish Iced">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="text-xl font-semibold">Spanish Iced Latte</h3>
+                            <span class="price-tag">22 Q.R.</span>
+                        </div>
+                        <p class="text-sm text-slate-400 font-light">A velvety mix of espresso and signature dulce blends.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Hot Section -->
+        <section class="mb-20">
+            <div class="flex items-center gap-4 mb-8">
+                <h2 class="heading-font text-2xl font-bold uppercase tracking-tight">☕ Hot Favorites</h2>
+                <div class="h-[1px] flex-grow bg-slate-800"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="group">
+                    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80&w=800" class="product-img" alt="Hot Coffee">
+                    <div class="flex justify-between items-start mb-1">
+                        <h3 class="text-xl font-semibold">Simple Rich Coffee</h3>
+                        <span class="price-tag">16 Q.R.</span>
+                    </div>
+                    <p class="text-sm text-slate-400 font-light">Classic heat met with high-grade evaporated smoothness.</p>
+                </div>
+                <div class="group">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800" class="product-img" alt="Tres Leches">
+                    <div class="flex justify-between items-start mb-1">
+                        <h3 class="text-xl font-semibold">Caffè Tres Leches</h3>
+                        <span class="price-tag">23 Q.R.</span>
+                    </div>
+                    <p class="text-sm text-slate-400 font-light">The triple-milk masterpiece for serious coffee lovers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Section -->
+        <section id="order" class="scroll-mt-10 py-20 border-t border-slate-800">
+            <div class="glass-card p-10 text-center">
+                <h2 class="heading-font text-3xl font-bold mb-4">Ready to Sip?</h2>
+                <p class="text-slate-400 mb-8">Order direct for pick-up or inquiries.</p>
+                
+                <div class="heading-font text-3xl font-bold text-white mb-6">
+                    +974 5571 0313
+                </div>
+
+                <a href="https://wa.me/97455710313" target="_blank" class="order-btn inline-flex items-center gap-3 px-12 py-5 rounded-full text-white font-bold text-lg heading-font hover:scale-105 transition-transform">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WHATSAPP ORDER
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black py-20 text-center">
+        <div class="mb-10">
+            <h1 class="heading-font text-3xl font-bold tracking-tighter mb-4">JUDE.</h1>
+            <div class="flex justify-center gap-6 text-slate-500 text-xs tracking-widest uppercase">
+                <span>Doha, Qatar</span>
+                <span>•</span>
+                <span>Open Daily</span>
+            </div>
+        </div>
+        
+        <button onclick="toggleSecret()" class="mb-12 text-[10px] text-slate-500 uppercase tracking-[0.3em] border border-slate-800 px-8 py-4 rounded-full hover:border-slate-400 transition-all font-bold">
+            Access Terminal?
+        </button>
+
+        <div id="secretMenu" class="hidden max-w-sm mx-auto p-6 glass-card text-left">
+            <h4 class="text-blue-400 font-bold mb-4 tracking-tighter uppercase">Admin Note:</h4>
+            <p class="text-sm text-slate-400 mb-4">Secret menu "Midnight Velvet" currently offline. Check back at 00:00.</p>
+        </div>
+
+        <p class="text-[10px] text-slate-700 uppercase tracking-widest mt-12">&copy; 2026 JUDE CAFE. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        function selectVibe(el) {
+            document.querySelectorAll('.vibe-card').forEach(card => {
+                card.classList.remove('active');
+                card.querySelector('span').classList.replace('text-sage', 'text-slate-500');
+                card.querySelector('div').classList.replace('bg-sage', 'bg-slate-700');
+            });
+            el.classList.add('active');
+            el.querySelector('span').classList.replace('text-slate-500', 'text-sage');
+            el.querySelector('div').classList.replace('bg-slate-700', 'bg-sage');
+        }
+
+        function toggleSecret() {
+            const el = document.getElementById('secretMenu');
+            el.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
